@@ -3,113 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mikita Martynau - Helping B2B SaaS Startups Grow</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='none' stroke='%23333' stroke-width='10'/><path d='M50 50 L50 10' stroke='%23333' stroke-width='8' stroke-linecap='round'/><circle cx='50' cy='50' r='5' fill='%23333'/></svg>">
+    <title>Mikita Martynau - Interim CPO for B2B SaaS Startups</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #111; /* Dark background for a sleek, modern look */
-            color: #f0f0f0; /* Light grey text for contrast */
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #00ff00; /* Retro green color for text */
             max-width: 800px;
             margin: 0 auto;
             padding: 20px;
-            line-height: 1.6;
+            background-color: #111; /* Dark background for retro feel */
+            background-image: linear-gradient(135deg, #222 25%, #111 25%, #111 50%, #222 50%, #222 75%, #111 75%, #111 100%);
+            background-size: 56px 56px; /* Adjust size for retro style */
+            animation: backgroundAnimation 4s infinite linear; /* Animate background */
         }
+
         h1, h2 {
-            color: #ffffff; /* White text for headings */
+            color: #00ff00; /* Retro green color for headings */
+            animation: blinkText 1s infinite alternate; /* Blinking text effect for retro style */
         }
-        h1 {
-            font-size: 2em;
-            margin-bottom: 0.5em;
+
+        @keyframes blinkText {
+            0% { opacity: 1; }
+            100% { opacity: 0.5; }
         }
-        h2 {
-            font-size: 1.5em;
-            margin-top: 1.5em;
-            margin-bottom: 0.5em;
+
+        @keyframes backgroundAnimation {
+            0% { background-position: 0 0; }
+            100% { background-position: 56px 56px; }
         }
+
         .challenge {
             cursor: pointer;
             margin-top: 20px;
             font-weight: bold;
-            color: #ff6600; /* Accent color */
+            color: #00ff00; /* Retro green color for text */
         }
+
         .solution {
             display: none;
             margin-left: 20px;
             padding: 10px;
-            background-color: #222; /* Slightly lighter background for contrast */
-            border-left: 3px solid #ff6600; /* Accent color for border */
+            background-color: #f8f8f8;
+            border-left: 3px solid #2c3e50;
         }
-        .cta {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #ff6600; /* Bright button color for emphasis */
-            color: #111; /* Dark text on button */
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-        .cta:hover {
-            background-color: #e55a00; /* Darker shade on hover */
-        }
+
         a {
-            color: #ff6600;
+            color: #00ff00; /* Retro green color for links */
             text-decoration: none;
+            margin-top: 20px;
+            display: block;
         }
+
         a:hover {
             text-decoration: underline;
         }
+
     </style>
 </head>
 <body>
-    <h1>Hi, I'm Mikita Martynau</h1>
+    <h1>Your Interim CPO: Building B2B SaaS Products That Find Customers Fast</h1>
     
-    <p>I help B2B SaaS startups find their footing and grow. I’ve founded Skarbe and was previously a Product Director at PandaDoc. My goal is to help you build products that users love and that scale smoothly.</p>
+    <p>I'm Mikita Martynau, a product leader with experience scaling B2B SaaS from the ground up to achieving significant growth milestones. I am currently founding Skarbe and was previously a Product Director at PandaDoc, a company that achieved unicorn status.</p>
 
-    <h2>What I Can Help With:</h2>
+    <h2>Key Challenges I Solve:</h2>
 
-    <div class="challenge" onclick="toggle('pmf')">► Figuring Out Product-Market Fit</div>
+    <div class="challenge" onclick="toggle('pmf')">► Finding Product-Market Fit</div>
     <div class="solution" id="pmf">
-        At my current startup, we made three big changes in six months to align with what users actually wanted, which led to 20+ active users and 3 paying customers. At PandaDoc, I refined our product approach to drive 150% growth each year.
+        I help startups identify what users really want and adapt their products quickly. At my current startup, I led several strategic pivots to better align with market needs, turning initial concepts into valuable customer insights. At PandaDoc, I refined our approach to consistently align our product with market demand, driving substantial growth.
     </div>
 
-    <div class="challenge" onclick="toggle('mvp')">► Building MVPs That Get Early Users</div>
+    <div class="challenge" onclick="toggle('mvp')">► Building MVPs That Attract Early Adopters</div>
     <div class="solution" id="mvp">
-        I secured 9 design partners within 3 months of launching our MVP, and 3 of them became paying customers. I developed a fast way to prototype, which cut our time to get a first user by half.
+        I specialize in creating MVPs that resonate with early adopters by focusing on core functionalities that matter most. By collaborating closely with design partners and rapidly iterating on feedback, I developed a streamlined prototyping process that brings products to market faster and meets real user needs.
     </div>
 
-    <div class="challenge" onclick="toggle('scale')">► Scaling Products Efficiently</div>
+    <div class="challenge" onclick="toggle('scale')">► Scaling Product for Growth</div>
     <div class="solution" id="scale">
-        At PandaDoc, I helped scale from a small team to a company with $100M+ in ARR over 4 years. We expanded from 1 to 5 main products without losing focus on our core customers.
+        At PandaDoc, I played a key role in scaling the company from an early-stage startup to a major player in the SaaS space, expanding our product suite while maintaining a strong focus on customer retention and satisfaction.
     </div>
 
-    <div class="challenge" onclick="toggle('acquisition')">► Improving Customer Acquisition</div>
+    <div class="challenge" onclick="toggle('acquisition')">► Optimizing Customer Acquisition</div>
     <div class="solution" id="acquisition">
-        I used product-led growth tactics at PandaDoc that reduced our customer acquisition costs by 30% and increased user activation from 20% to 35% in just one year.
+        I develop growth strategies that reduce customer acquisition costs and increase user engagement. By refining the onboarding process and enhancing product value, I’ve helped companies improve user activation rates and retain customers more effectively.
     </div>
 
     <h2>My Approach:</h2>
     <ul>
-        <li><strong>Data-Driven Decisions:</strong> I base every decision on actual user feedback and market research.</li>
-        <li><strong>Fast Iteration:</strong> We work in short cycles, adjusting quickly based on what we learn.</li>
-        <li><strong>Collaborative Leadership:</strong> I work closely with product, engineering, and sales teams to make sure everyone is moving in the same direction.</li>
+        <li><strong>Data-Driven Decisions:</strong> Every feature is informed by user data and market research to ensure it meets customer needs.</li>
+        <li><strong>Rapid Iteration:</strong> Working in short sprints allows for quick adjustments based on continuous feedback.</li>
+        <li><strong>Cross-Functional Leadership:</strong> I align product, engineering, and go-to-market teams to ensure everyone is working towards the same goals.</li>
     </ul>
 
-    <h2>How I Can Work With You:</h2>
+    <h2>How I Can Help:</h2>
     <ul>
-        <li><strong>Interim CPO:</strong> Stepping in to lead product for a few months.</li>
-        <li><strong>Strategic Advice:</strong> Helping shape your product strategy and team structure.</li>
-        <li><strong>Growth Consultation:</strong> Finding ways to grow through both product and sales tactics.</li>
+        <li><strong>Interim CPO:</strong> Providing hands-on product leadership for 3-6 month engagements to guide your team and strategy.</li>
+        <li><strong>Strategic Advisory:</strong> Offering expert advice on product strategy, roadmap development, and team structuring to drive growth.</li>
+        <li><strong>Growth Consultation:</strong> Identifying opportunities to optimize both product-led and sales-led growth for sustainable success.</li>
     </ul>
 
-    <p>Let's talk if you're trying to get your product off the ground or need help scaling up. I'm here to share what I've learned and help you succeed.</p>
+    <p>If you're navigating product-market fit or ready to scale, I can provide the strategic insights and hands-on leadership to turn your vision into a thriving product and business.</p>
 
-    <a href="mailto:mikita.martynau@gmail.com" class="cta">Discuss Your Product Challenges</a>
-    <br>
-    <a href="https://www.linkedin.com/in/mikita-martynau" class="cta">Connect on LinkedIn</a>
-    <br>
-    <a href="https://skarbe.com" class="cta">Visit Skarbe.com</a>
+    <a href="mailto:mikita.martynau@gmail.com">Discuss Your Product Challenges</a>
+    <a href="https://www.linkedin.com/in/nikitamartynovand">Connect on LinkedIn</a>
+    <a href="https://skarbe.com">Visit Skarbe.com</a>
+    <a href="https://twitter.com/nikitokinito" target="_blank">Follow me on Twitter @nikitokinito</a>
 
     <script>
         function toggle(id) {
