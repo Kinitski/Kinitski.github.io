@@ -6,105 +6,129 @@
     <title>Mikita Martynau - Interim CPO for B2B SaaS Startups</title>
     <style>
         body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.8;
-            color: #333;
-            max-width: 800px;
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #000;
+            max-width: 900px;
             margin: 0 auto;
-            padding: 40px 20px;
-            background-color: #f7f7f7; /* Light background color for Notion-like style */
+            padding: 50px 20px;
+            background-color: #f0f0f0; /* Light grey background similar to Ableton */
         }
 
         h1 {
-            color: #1a1a1a;
+            color: #000;
             font-size: 2.5em;
-            margin-bottom: 0.5em;
+            font-weight: bold;
+            margin-bottom: 20px;
         }
 
         h2 {
-            color: #333;
-            font-size: 1.8em;
-            margin-top: 1.5em;
-            margin-bottom: 0.5em;
+            color: #000;
+            font-size: 1.75em;
+            margin-top: 30px;
+            margin-bottom: 15px;
         }
 
         p {
-            margin-bottom: 1.5em;
-            color: #4a4a4a;
+            margin-bottom: 20px;
+            color: #333;
+            font-size: 1.1em;
         }
 
         .challenge {
             cursor: pointer;
             margin-top: 20px;
             font-weight: bold;
-            color: #1a73e8; /* Notion-inspired blue */
+            color: #0050FF; /* Ableton-inspired blue */
+            font-size: 1.2em;
+            display: flex;
+            align-items: center;
+        }
+
+        .challenge::before {
+            content: '►';
+            margin-right: 10px;
+            font-size: 1.2em;
+            transition: transform 0.3s;
         }
 
         .solution {
             display: none;
             margin-left: 20px;
-            padding: 10px;
-            background-color: #ffffff;
-            border-left: 4px solid #1a73e8; /* Border color matching challenge links */
-            margin-bottom: 15px;
-            border-radius: 4px;
+            padding: 15px;
+            background-color: #fff;
+            border-left: 4px solid #0050FF;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
         a {
-            color: #1a73e8; /* Notion-inspired blue for links */
+            color: #0050FF;
             text-decoration: none;
-            font-weight: 500;
-            display: block;
-            margin-top: 15px;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 20px;
+            font-size: 1.1em;
         }
 
         a:hover {
             text-decoration: underline;
         }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
     </style>
 </head>
 <body>
-    <h1>Your Interim CPO: Building B2B SaaS Products That Find Customers Fast</h1>
+    <h1>Your Interim CPO: Helping B2B SaaS Grow</h1>
     
-    <p>I'm Mikita Martynau, a product leader with experience scaling B2B SaaS from the ground up to achieving significant growth milestones. I am currently founding Skarbe and was previously a Product Director at PandaDoc, a company that achieved unicorn status.</p>
+    <p>I’m Mikita Martynau, a product leader who helps B2B SaaS companies find their market, build the right product, and scale effectively. I founded Skarbe and was a Product Director at PandaDoc.</p>
 
-    <h2>Key Challenges I Solve:</h2>
+    <h2>How I Help:</h2>
 
-    <div class="challenge" onclick="toggle('pmf')">► Finding Product-Market Fit</div>
+    <div class="challenge" onclick="toggle('pmf')">Finding Product-Market Fit</div>
     <div class="solution" id="pmf">
-        I help startups identify what users really want and adapt their products quickly. At my current startup, I led several strategic pivots to better align with market needs, turning initial concepts into valuable customer insights. At PandaDoc, I refined our approach to consistently align our product with market demand, driving substantial growth.
+        I help you understand what your users need and adjust your product to meet those needs. At my startup, we pivoted multiple times to align with market demand. At PandaDoc, I refined our product strategy to drive growth.
     </div>
 
-    <div class="challenge" onclick="toggle('mvp')">► Building MVPs That Attract Early Adopters</div>
+    <div class="challenge" onclick="toggle('mvp')">Building MVPs That Work</div>
     <div class="solution" id="mvp">
-        I specialize in creating MVPs that resonate with early adopters by focusing on core functionalities that matter most. By collaborating closely with design partners and rapidly iterating on feedback, I developed a streamlined prototyping process that brings products to market faster and meets real user needs.
+        I guide you in creating MVPs that attract early users. I focus on core features that solve real problems. This approach reduces time to market and ensures early traction.
     </div>
 
-    <div class="challenge" onclick="toggle('scale')">► Scaling Product for Growth</div>
+    <div class="challenge" onclick="toggle('scale')">Scaling Your Product</div>
     <div class="solution" id="scale">
-        At PandaDoc, I played a key role in scaling the company from an early-stage startup to a major player in the SaaS space, expanding our product suite while maintaining a strong focus on customer retention and satisfaction.
+        I help you grow without losing focus on what matters. At PandaDoc, we expanded from a single product to a full suite while maintaining customer satisfaction.
     </div>
 
-    <div class="challenge" onclick="toggle('acquisition')">► Optimizing Customer Acquisition</div>
+    <div class="challenge" onclick="toggle('acquisition')">Reducing Customer Acquisition Costs</div>
     <div class="solution" id="acquisition">
-        I develop growth strategies that reduce customer acquisition costs and increase user engagement. By refining the onboarding process and enhancing product value, I’ve helped companies improve user activation rates and retain customers more effectively.
+        I help you find more efficient ways to acquire customers and keep them engaged. At PandaDoc, I cut acquisition costs and boosted user retention through targeted strategies.
     </div>
 
     <h2>My Approach:</h2>
     <ul>
-        <li><strong>Data-Driven Decisions:</strong> Every feature is informed by user data and market research to ensure it meets customer needs.</li>
-        <li><strong>Rapid Iteration:</strong> Working in short sprints allows for quick adjustments based on continuous feedback.</li>
-        <li><strong>Cross-Functional Leadership:</strong> I align product, engineering, and go-to-market teams to ensure everyone is working towards the same goals.</li>
+        <li><strong>Listen to Users:</strong> Make decisions based on real feedback and data.</li>
+        <li><strong>Move Fast:</strong> Test and iterate quickly to find what works.</li>
+        <li><strong>Work as a Team:</strong> Align product, engineering, and sales for a unified effort.</li>
     </ul>
 
-    <h2>How I Can Help:</h2>
+    <h2>Ways We Can Work Together:</h2>
     <ul>
-        <li><strong>Interim CPO:</strong> Providing hands-on product leadership for 3-6 month engagements to guide your team and strategy.</li>
-        <li><strong>Strategic Advisory:</strong> Offering expert advice on product strategy, roadmap development, and team structuring to drive growth.</li>
-        <li><strong>Growth Consultation:</strong> Identifying opportunities to optimize both product-led and sales-led growth for sustainable success.</li>
+        <li><strong>Interim CPO:</strong> I’ll lead your product team for a few months to set up strong foundations.</li>
+        <li><strong>Strategic Advisory:</strong> I’ll help refine your product strategy and build a clear roadmap.</li>
+        <li><strong>Growth Consultation:</strong> I’ll find ways to improve your growth tactics and boost retention.</li>
     </ul>
 
-    <p>If you're navigating product-market fit or ready to scale, I can provide the strategic insights and hands-on leadership to turn your vision into a thriving product and business.</p>
+    <p>Let’s chat if you need help finding your market, building a product users love, or scaling up. I'm here to share what I've learned and help you succeed.</p>
 
     <a href="mailto:mikita.martynau@gmail.com">Discuss Your Product Challenges</a>
     <a href="https://www.linkedin.com/in/nikitamartynovand">Connect on LinkedIn</a>
@@ -114,7 +138,14 @@
     <script>
         function toggle(id) {
             var solution = document.getElementById(id);
-            solution.style.display = solution.style.display === 'block' ? 'none' : 'block';
+            var icon = document.querySelector(`[onclick="toggle('${id}')"]::before`);
+            if (solution.style.display === 'block') {
+                solution.style.display = 'none';
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                solution.style.display = 'block';
+                icon.style.transform = 'rotate(90deg)';
+            }
         }
     </script>
 </body>
