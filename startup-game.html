@@ -17,9 +17,10 @@
         .game-container {
             width: 800px;
             height: 600px;
-            background-color: black;
-            image-rendering: pixelated; /* Ensures pixel art is not blurred */
+            background-color: #000;
+            image-rendering: pixelated; /* Keeps the pixel art style */
             border: 4px solid #fff;
+            position: relative;
         }
 
         canvas {
@@ -33,103 +34,92 @@
         <canvas id="gameCanvas"></canvas>
     </div>
     <script>
-        window.onload = function() {
-            const canvas = document.getElementById('gameCanvas');
-            const ctx = canvas.getContext('2d');
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
 
-            canvas.width = 800;
-            canvas.height = 600;
+        canvas.width = 800;
+        canvas.height = 600;
 
-            // Test with console logs
-            console.log("Canvas setup complete.");
+        // Game entities with basic pixel-art-like characteristics
+        const hero = {
+            x: 50,
+            y: canvas.height - 120,
+            width: 30,
+            height: 50,
+            color: '#4CAF50',
+            speed: 2,
+            direction: 'right'
+        };
 
-            // Game assets (images)
-            const heroImage = new Image();
-            heroImage.src = 'https://via.placeholder.com/50x100.png?text=Hero';
-            const enemyImage = new Image();
-            enemyImage.src = 'https://via.placeholder.com/50x100.png?text=Enemy';
-            const partnerImage = new Image();
-            partnerImage.src = 'https://via.placeholder.com/50x100.png?text=Partner';
+        const partner = {
+            x: -50,
+            y: canvas.height - 120,
+            width: 30,
+            height: 50,
+            color: '#2196F3',
+            speed: 2,
+            active: false
+        };
 
-            heroImage.onload = function() {
-                console.log("Hero image loaded.");
-                enemyImage.onload = function() {
-                    console.log("Enemy image loaded.");
-                    partnerImage.onload = function() {
-                        console.log("Partner image loaded.");
-                        animate();
-                    };
-                };
-            };
+        const enemies = [
+            { x: canvas.width - 150, y: canvas.height - 120, width: 30, height: 50, color: '#F44336', speed: 1 },
+            { x: canvas.width - 200, y: canvas.height - 120, width: 30, height: 50, color: '#F44336', speed: 1 }
+        ];
 
-            let hero = {
-                x: 0,
-                y: canvas.height - 100,
-                width: 50,
-                height: 100,
-                speed: 2,
-                image: heroImage,
-            };
+        function drawPixelCharacter(character) {
+            // Draw head
+            ctx.fillStyle = character.color;
+            ctx.fillRect(character.x, character.y, character.width, character.height / 2);
 
-            let enemy = {
-                x: canvas.width - 100,
-                y: canvas.height - 100,
-                width: 50,
-                height: 100,
-                speed: 1.5,
-                image: enemyImage,
-            };
+            // Draw body
+            ctx.fillRect(character.x + character.width / 4, character.y + character.height / 2, character.width / 2, character.height / 2);
 
-            let partner = {
-                x: -100,
-                y: canvas.height - 100,
-                width: 50,
-                height: 100,
-                speed: 2,
-                image: partnerImage,
-                active: false,
-            };
+            // Draw legs
+            ctx.fillRect(character.x, character.y + character.height, character.width / 4, character.height / 2);
+            ctx.fillRect(character.x + (3 * character.width / 4), character.y + character.height, character.width / 4, character.height / 2);
+        }
 
-            function drawCharacter(character) {
-                console.log(`Drawing ${character.image.src} at (${character.x}, ${character.y})`);
-                ctx.drawImage(character.image, character.x, character.y, character.width, character.height);
-            }
-
-            function updateGameObjects() {
-                // Move hero towards the enemy
-                if (hero.x < enemy.x - hero.width - 50) {
+        function updatePositions() {
+            // Move hero to the right until reaching the middle of the screen
+            if (hero.direction === 'right') {
+                if (hero.x < canvas.width / 2 - hero.width) {
                     hero.x += hero.speed;
                 } else {
-                    // Partner joins after hero reaches a point near the enemy
-                    partner.active = true;
+                    hero.direction = 'stand';
                 }
+            }
 
-                if (partner.active) {
-                    partner.x += partner.speed;
-                }
+            // Activate partner after hero reaches the middle
+            if (!partner.active && hero.direction === 'stand') {
+                partner.active = true;
+                partner.x = hero.x - partner.width - 10;
+            }
 
-                // Move enemy towards the hero
-                if (enemy.x > hero.x + hero.width + 50) {
+            // Move partner to follow hero
+            if (partner.active && partner.x < hero.x - 10) {
+                partner.x += partner.speed;
+            }
+
+            // Move enemies towards the hero
+            enemies.forEach((enemy, index) => {
+                if (enemy.x > hero.x + hero.width + 50 * index) {
                     enemy.x -= enemy.speed;
                 }
+            });
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear the canvas
+
+            // Draw hero, partner, and enemies
+            drawPixelCharacter(hero);
+            if (partner.active) {
+                drawPixelCharacter(partner);
             }
+            enemies.forEach(drawPixelCharacter);
 
-            function animate() {
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                
-                drawCharacter(hero);
-                drawCharacter(enemy);
-                
-                if (partner.active) {
-                    drawCharacter(partner);
-                }
+            updatePositions();
+            requestAnimationFrame(animate);
+        }
 
-                updateGameObjects();
-                requestAnimationFrame(animate);
-            }
-
-            // Start animation once images are loaded
-        };
-    </script>
-</body>
-</html>
+        animate(); // Start the animation
