@@ -3,118 +3,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Founder & CPO vs. Startup Challenges</title>
+    <title>Retro Game Animation</title>
     <style>
         body {
-            background-color: #000;
-            color: #0F0;
-            font-family: monospace;
-            font-size: 14px;
-            line-height: 1;
+            margin: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            margin: 0;
+            background-color: #000;
         }
-        #game-container {
-            text-align: center;
+
+        .game-container {
+            width: 800px;
+            height: 600px;
+            background-color: black;
+            image-rendering: pixelated; /* Ensures pixel art is not blurred */
+            border: 4px solid #fff;
         }
-        #game-screen {
-            width: 80ch;
-            height: 24em;
-            border: 1px solid #0F0;
-            margin-bottom: 1em;
-            white-space: pre;
-        }
-        button {
-            background-color: #0F0;
-            color: #000;
-            border: none;
-            padding: 0.5em 1em;
-            font-family: monospace;
-            font-size: 1em;
-            cursor: pointer;
+
+        canvas {
+            width: 100%;
+            height: 100%;
         }
     </style>
 </head>
 <body>
-    <div id="game-container">
-        <div id="game-screen"></div>
-        <button onclick="startAnimation()">Start Battle</button>
+    <div class="game-container">
+        <canvas id="gameCanvas"></canvas>
     </div>
-
     <script>
-        const gameScreen = document.getElementById('game-screen');
-        const frames = [
-`
-   Founder     CPO     Challenge
-     O         O          }:>
-    /|\\       /|\\
-    / \\       / \\
-`,
-`
-   Founder     CPO     Challenge
-    \\O/       \\O/         }:>
-     |         |
-    / \\       / \\
-`,
-`
-   Founder     CPO     Challenge
-     O         O        }:>
-    /|\\       /|\\
-    / \\       / \\
-`,
-`
-   Founder     CPO     Challenge
-    _O_       _O_      }:>
-     |         |
-    / \\       / \\
-`,
-`
-   Founder     CPO     Challenge
-     O         O      }:>
-    /|\\       /|\\
-    / \\       / \\
-`,
-`
-   Founder     CPO     Challenge
-    \\O        \\O       }:>
-     |\\        |\\
-    / \\       / \\
-`,
-`
-   Founder     CPO     Challenge
-     O         O     }:>
-    /|\\       /|\\
-    / \\       / \\
-`,
-`
-   Founder     CPO     Challenge
-     O/        O/    }:>
-    /|        /|
-    / \\       / \\
-`,
-`
-   Founder     CPO     
-     \\O/       \\O/   Challenge Defeated!
-      |         |
-     / \\       / \\
-`
-        ];
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
 
-        let currentFrame = 0;
+        canvas.width = 800;
+        canvas.height = 600;
 
-        function startAnimation() {
-            currentFrame = 0;
-            const interval = setInterval(() => {
-                gameScreen.textContent = frames[currentFrame];
-                currentFrame++;
-                if (currentFrame >= frames.length) {
-                    clearInterval(interval);
-                }
-            }, 500);
+        // Game assets (images would be loaded here)
+        const heroImage = new Image();
+        heroImage.src = 'https://raw.githubusercontent.com/CodeExplainedRepo/HTML5-Canvas-Simple-Platformer-Game/master/assets/hero.png'; // A sample pixel art hero image
+        const enemyImage = new Image();
+        enemyImage.src = 'https://raw.githubusercontent.com/CodeExplainedRepo/HTML5-Canvas-Simple-Platformer-Game/master/assets/enemy.png'; // A sample pixel art enemy image
+        const partnerImage = new Image();
+        partnerImage.src = 'https://raw.githubusercontent.com/CodeExplainedRepo/HTML5-Canvas-Simple-Platformer-Game/master/assets/partner.png'; // A sample pixel art partner image
+
+        let hero = {
+            x: 0,
+            y: canvas.height - 100,
+            width: 50,
+            height: 100,
+            speed: 2,
+            image: heroImage,
+        };
+
+        let enemy = {
+            x: canvas.width - 100,
+            y: canvas.height - 100,
+            width: 50,
+            height: 100,
+            speed: 1.5,
+            image: enemyImage,
+        };
+
+        let partner = {
+            x: -100,
+            y: canvas.height - 100,
+            width: 50,
+            height: 100,
+            speed: 2,
+            image: partnerImage,
+            active: false,
+        };
+
+        function drawCharacter(character) {
+            ctx.drawImage(character.image, character.x, character.y, character.width, character.height);
         }
+
+        function updateGameObjects() {
+            // Move hero towards the enemy
+            if (hero.x < enemy.x - hero.width - 50) {
+                hero.x += hero.speed;
+            } else {
+                // Partner joins after hero reaches a point near the enemy
+                partner.active = true;
+            }
+
+            if (partner.active) {
+                partner.x += partner.speed;
+            }
+
+            // Move enemy towards the hero
+            if (enemy.x > hero.x + hero.width + 50) {
+                enemy.x -= enemy.speed;
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            drawCharacter(hero);
+            drawCharacter(enemy);
+            
+            if (partner.active) {
+                drawCharacter(partner);
+            }
+
+            updateGameObjects();
+            requestAnimationFrame(animate);
+        }
+
+        // Start animation once images are loaded
+        heroImage.onload = function() {
+            enemyImage.onload = function() {
+                partnerImage.onload = function() {
+                    animate();
+                };
+            };
+        };
     </script>
 </body>
 </html>
