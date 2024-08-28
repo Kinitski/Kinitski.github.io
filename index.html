@@ -101,4 +101,52 @@
 
     <div class="challenge" onclick="toggle('mvp')">Building MVPs That Matter</div>
     <div class="solution" id="mvp">
-        Building an MVP can feel like throwing darts blindfolded. I help you focus on just the essentials to solve real problems. We’ll get something into users' hands quickly, learn fast, and keep improving without wasting time or money
+        Building an MVP can feel like throwing darts blindfolded. I help you focus on just the essentials to solve real problems. We’ll get something into users' hands quickly, learn fast, and keep improving without wasting time or money.
+    </div>
+
+    <div class="challenge" onclick="toggle('scale')">Growing Without the Chaos</div>
+    <div class="solution" id="scale">
+        Scaling up can turn messy fast. I’ve been there, expanding from one product to a suite at PandaDoc. I’ll help you grow in a way that keeps your team focused and your customers happy.
+    </div>
+
+    <div class="challenge" onclick="toggle('acquisition')">Getting Customers Without Burning Cash</div>
+    <div class="solution" id="acquisition">
+        Spending big on ads and seeing little return? I’ll show you smarter ways to attract and keep customers. At PandaDoc, I cut costs and increased engagement by tweaking the onboarding and user experience. Let’s make your marketing budget work harder.
+    </div>
+
+    <h2>How I Work:</h2>
+    <ul>
+        <li><strong>Listen First:</strong> We dig into user feedback to understand what they really need.</li>
+        <li><strong>Move Quickly:</strong> We test ideas fast to find what sticks and ditch what doesn’t.</li>
+        <li><strong>Stay Aligned:</strong> I make sure your team is on the same page, working towards the same goals.</li>
+    </ul>
+
+    <h2>How We Can Work Together:</h2>
+    <ul>
+        <li><strong>Interim CPO:</strong> I jump in to lead your product team for a few months, helping to build a solid foundation.</li>
+        <li><strong>Hands-On Advice:</strong> I’ll work with you directly to refine your product and growth tactics.</li>
+        <li><strong>Growth Tune-Up:</strong> We’ll find quick wins to boost retention and make your customer acquisition more efficient.</li>
+    </ul>
+
+    <p>Let's talk about your challenges and how we can solve them together. I’m here to help you get it right and grow with confidence.</p>
+
+    <a href="mailto:mikita.martynau@gmail.com">Email me to discuss your product challenges</a>
+    <a href="https://www.linkedin.com/in/nikitamartynovand">Connect with me on LinkedIn</a>
+    <a href="https://skarbe.com">Visit Skarbe.com</a>
+    <a href="https://twitter.com/nikitokinito" target="_blank">Follow me on Twitter @nikitokinito</a>
+
+    <script>
+        function toggle(id) {
+            var solution = document.getElementById(id);
+            var icon = document.querySelector(`[onclick="toggle('${id}')"]::before`);
+            if (solution.style.display === 'block') {
+                solution.style.display = 'none';
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                solution.style.display = 'block';
+                icon.style.transform = 'rotate(90deg)';
+            }
+        }
+    </script>
+</body>
+</html>
