@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mikita Martynau: Your Startup's Missing Piece</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #ffffff;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        h1 {
+            font-size: 2.5em;
+            color: #000;
+            font-weight: 700;
+            margin-bottom: 30px;
+        }
+        .problem {
+            font-weight: 600;
+            margin-top: 30px;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        .problem:hover {
+            color: #0070c9;
+        }
+        .solution {
+            margin-top: 10px;
+            padding-left: 20px;
+            border-left: 2px solid #e5e5e5;
+            display: none;
+        }
+        .experience {
+            margin-top: 40px;
+        }
+        .cta {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 12px 24px;
+            background-color: #0070c9;
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            border-radius: 6px;
+            transition: background-color 0.3s ease;
+        }
+        .cta:hover {
+            background-color: #0051a9;
+        }
+    </style>
+</head>
+<body>
+    <h1>Mikita Martynau:<br>Your Startup's Missing Piece</h1>
+    
+    <p>Founders, I've walked in your shoes. Click on each problem to see how I can help:</p>
+
+    <div>
+        <div class="problem" onclick="toggle('solution1')">► Finding Product-Market Fit</div>
+        <div class="solution" id="solution1">I've conducted 100+ customer interviews and led 3 successful pivots. I can help you validate ideas quickly and efficiently.</div>
+    </div>
+
+    <div>
+        <div class="problem" onclick="toggle('solution2')">► Building an MVP That Attracts Users</div>
+        <div class="solution" id="solution2">I've built MVPs that secured 9 design partnerships and converted 3 to paying customers. I know how to create products that resonate with early adopters.</div>
+    </div>
+
+    <div>
+        <div class="problem" onclick="toggle('solution3')">► Scaling from Early-Stage to Growth</div>
+        <div class="solution" id="solution3">As Product Director at PandaDoc, I led product growth from early-stage to unicorn status. I can help set up processes that scale.</div>
+    </div>
+
+    <div>
+        <div class="problem" onclick="toggle('solution4')">► Balancing Product-Led and Sales-Led Growth</div>
+        <div class="solution" id="solution4">I've successfully implemented both PLG and enterprise sales motions. I can help you find the right balance for your product and market.</div>
+    </div>
+
+    <div class="experience">
+        <h2>My Experience:</h2>
+        <ul>
+            <li>Current founder of B2B SaaS startup</li>
+            <li>First product hire for multiple startups</li>
+            <li>Product Director at PandaDoc (2018-2024)</li>
+        </ul>
+    </div>
+
+    <p>Available for part-time roles, short-term projects, or ongoing advisory.</p>
+
+    <a href="mailto:mikita.martynau@gmail.com" class="cta">Let's Solve Your Startup Challenges</a>
+
+    <script>
+        function toggle(id) {
+            var solution = document.getElementById(id);
+            solution.style.display = solution.style.display === 'block' ? 'none' : 'block';
+        }
+    </script>
+</body>
+</html>
