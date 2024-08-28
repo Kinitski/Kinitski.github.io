@@ -3,101 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Startup Journey Game</title>
+    <title>Founder & CPO vs. Startup Challenges</title>
     <style>
-        body, html {
+        body {
+            background-color: #000;
+            color: #0F0;
+            font-family: monospace;
+            font-size: 14px;
+            line-height: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
             margin: 0;
-            padding: 0;
-            height: 100%;
-            overflow: hidden;
         }
-        #gameCanvas {
-            border: 1px solid #000;
+        #game-container {
+            text-align: center;
+        }
+        #game-screen {
+            width: 80ch;
+            height: 24em;
+            border: 1px solid #0F0;
+            margin-bottom: 1em;
+            white-space: pre;
+        }
+        button {
+            background-color: #0F0;
+            color: #000;
+            border: none;
+            padding: 0.5em 1em;
+            font-family: monospace;
+            font-size: 1em;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
-    <canvas id="gameCanvas"></canvas>
+    <div id="game-container">
+        <div id="game-screen"></div>
+        <button onclick="startAnimation()">Start Battle</button>
+    </div>
+
     <script>
-        const canvas = document.getElementById('gameCanvas');
-        const ctx = canvas.getContext('2d');
+        const gameScreen = document.getElementById('game-screen');
+        const frames = [
+`
+   Founder     CPO     Challenge
+     O         O          }:>
+    /|\\       /|\\
+    / \\       / \\
+`,
+`
+   Founder     CPO     Challenge
+    \\O/       \\O/         }:>
+     |         |
+    / \\       / \\
+`,
+`
+   Founder     CPO     Challenge
+     O         O        }:>
+    /|\\       /|\\
+    / \\       / \\
+`,
+`
+   Founder     CPO     Challenge
+    _O_       _O_      }:>
+     |         |
+    / \\       / \\
+`,
+`
+   Founder     CPO     Challenge
+     O         O      }:>
+    /|\\       /|\\
+    / \\       / \\
+`,
+`
+   Founder     CPO     Challenge
+    \\O        \\O       }:>
+     |\\        |\\
+    / \\       / \\
+`,
+`
+   Founder     CPO     Challenge
+     O         O     }:>
+    /|\\       /|\\
+    / \\       / \\
+`,
+`
+   Founder     CPO     Challenge
+     O/        O/    }:>
+    /|        /|
+    / \\       / \\
+`,
+`
+   Founder     CPO     
+     \\O/       \\O/   Challenge Defeated!
+      |         |
+     / \\       / \\
+`
+        ];
 
-        canvas.width = 300;
-        canvas.height = 400;
+        let currentFrame = 0;
 
-        let score = 0;
-        let playerX = canvas.width / 2;
-        const playerY = canvas.height - 30;
-        const playerWidth = 50;
-        const playerHeight = 20;
-
-        const items = [];
-
-        function drawPlayer() {
-            ctx.fillStyle = 'blue';
-            ctx.fillRect(playerX - playerWidth / 2, playerY, playerWidth, playerHeight);
-        }
-
-        function drawItems() {
-            items.forEach(item => {
-                ctx.fillStyle = item.type === 'good' ? 'green' : 'red';
-                ctx.beginPath();
-                ctx.arc(item.x, item.y, 10, 0, Math.PI * 2);
-                ctx.fill();
-            });
-        }
-
-        function updateItems() {
-            for (let i = items.length - 1; i >= 0; i--) {
-                items[i].y += 2;
-                if (items[i].y > canvas.height) {
-                    items.splice(i, 1);
-                } else if (
-                    items[i].y > playerY - 10 &&
-                    items[i].x > playerX - playerWidth / 2 &&
-                    items[i].x < playerX + playerWidth / 2
-                ) {
-                    if (items[i].type === 'good') {
-                        score++;
-                    } else {
-                        score = Math.max(0, score - 1);
-                    }
-                    items.splice(i, 1);
+        function startAnimation() {
+            currentFrame = 0;
+            const interval = setInterval(() => {
+                gameScreen.textContent = frames[currentFrame];
+                currentFrame++;
+                if (currentFrame >= frames.length) {
+                    clearInterval(interval);
                 }
-            }
+            }, 500);
         }
-
-        function drawScore() {
-            ctx.fillStyle = 'black';
-            ctx.font = '16px Arial';
-            ctx.fillText('Score: ' + score, 10, 30);
-        }
-
-        function gameLoop() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            
-            drawPlayer();
-            drawItems();
-            updateItems();
-            drawScore();
-
-            if (Math.random() < 0.02) {
-                items.push({
-                    x: Math.random() * canvas.width,
-                    y: 0,
-                    type: Math.random() < 0.7 ? 'good' : 'bad'
-                });
-            }
-
-            requestAnimationFrame(gameLoop);
-        }
-
-        canvas.addEventListener('mousemove', (e) => {
-            const rect = canvas.getBoundingClientRect();
-            playerX = e.clientX - rect.left;
-        });
-
-        gameLoop();
     </script>
 </body>
 </html>
